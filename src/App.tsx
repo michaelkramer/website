@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import Routes from "./Routes";
 
 function App() {
+  console.log(process.env);
   return (
     <div>
       <Router>
