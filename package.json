@@ -2,7 +2,7 @@
   "name": "website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://michaelkramer.github.io",
+  "homepage": "https://michaelkramer.github.io/website/",
   "scripts": {
     "rs-start": "react-scripts start",
     "rs-build": "react-scripts build",
