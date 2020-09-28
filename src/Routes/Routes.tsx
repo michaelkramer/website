@@ -9,7 +9,7 @@ const Routes = () => {
     <Switch>
       {menuItems.map((menuItem, index) => {
         const Component = menuItem.component || EmptyPage;
-        console.log(Component.name);
+
         return (
           <Route exact={menuItem.exact} key={index} path={menuItem.url}>
             <Component />

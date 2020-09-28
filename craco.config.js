@@ -11,6 +11,7 @@ module.exports = {
           lessOptions: {
             modifyVars: {
               // "@primary-color": "#1DA57A",
+              "@ant-prefix": "mk",
               "@layout-body-background": "#fff",
               "@layout-header-background": "#fff",
               "@font-family":

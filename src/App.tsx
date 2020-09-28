@@ -1,19 +1,23 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
+import { ConfigProvider } from "antd";
 import "./App.less";
 import Layout from "./Layout";
 import Routes from "./Routes";
 
+const antConfig = {
+  prefixCls: "mk",
+};
+
 function App() {
-  // console.log(process.env);
   return (
-    <div>
+    <ConfigProvider {...antConfig}>
       <Router>
         <Layout>
           <Routes />
         </Layout>
       </Router>
-    </div>
+    </ConfigProvider>
   );
 }
 
