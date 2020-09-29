@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineUser } from "react-icons/ai";
+import * as AI from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { FcBusinessman } from "react-icons/fc";
 
@@ -16,7 +16,7 @@ const User = ({ theme }: $Props) => {
     case IconTheme.fc:
       return <FcBusinessman />;
     default:
-      return <AiOutlineUser />;
+      return <AI.AiOutlineUser />;
   }
 };
 
