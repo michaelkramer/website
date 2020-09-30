@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Radio, Typography } from "antd";
+
 import { ROUTES } from "../constants";
-
 import Icon from "../Common/Icons";
-
 import Home from "../Home";
 import Resume from "../Resume";
 import EmptyPage from "../EmptyPage";
+import ContactForm from "../Contact";
 import { IconTheme, IconThemeOptions } from "../Common/Icons";
+
 interface MenuItem {
   url: string;
   title: string;
@@ -28,8 +29,8 @@ const menuItems: MenuItem[] = [
   },
   { url: ROUTES.RLS, title: "Rls", icon: "User" },
   { url: ROUTES.SIDE, title: "Side ideas" },
-  { url: ROUTES.NOTES, title: "Notes" },
-  { url: "/empty", title: "Empty", component: EmptyPage },
+  { url: ROUTES.NOTES, title: "Notes", component: EmptyPage },
+  { url: "/contact", title: "Contact", component: ContactForm },
 ];
 
 const menuStyle = {
