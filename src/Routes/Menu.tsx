@@ -7,7 +7,8 @@ import Icon from "../Common/Icons";
 import Home from "../Home";
 import Resume from "../Resume";
 import EmptyPage from "../EmptyPage";
-import ContactForm from "../Contact";
+import Notes from "../Notes";
+//! import ContactForm from "../Contact"; - this has been stashed
 import { IconTheme, IconThemeOptions } from "../Common/Icons";
 
 interface MenuItem {
@@ -28,9 +29,9 @@ const menuItems: MenuItem[] = [
     icon: "User",
   },
   { url: ROUTES.RLS, title: "Rls", icon: "User" },
-  { url: ROUTES.SIDE, title: "Side ideas" },
-  { url: ROUTES.NOTES, title: "Notes", component: EmptyPage },
-  { url: "/contact", title: "Contact", component: ContactForm },
+  { url: ROUTES.SIDE, title: "Side ideas", component: EmptyPage },
+  { url: ROUTES.NOTES, title: "Notes", component: Notes },
+  //! { url: "/contact", title: "Contact", component: ContactForm },
 ];
 
 const menuStyle = {
