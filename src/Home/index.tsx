@@ -1,6 +1,5 @@
 import React from "react";
 import { Typography } from "antd";
-// import { Link } from "react-router-dom";
 import { withStyles } from "../Common/Theme";
 import MenuApp from "../Routes/Menu";
 
