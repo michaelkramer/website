@@ -1,10 +1,9 @@
 import React from "react";
 import Icon from "@ant-design/icons";
+import { IconTheme, IconThemes } from "./IconTheme";
+import IconList from "./IconList";
 
-import { IconTheme, IconThemeOptions } from "./IconTheme";
-import User from "./User";
-
-export { IconTheme, IconThemeOptions };
+export { IconTheme, IconThemes };
 
 interface $Props {
   theme: any;
@@ -12,16 +11,17 @@ interface $Props {
 }
 
 const getIcon = ({ theme, name }: $Props) => {
-  switch (name) {
-    case "User":
-      return <User theme={theme} />;
-
-    default:
-      return <span>Icon</span>;
+  const newIcon = IconList.find(
+    (item) => item.name === name && item.theme === theme
+  );
+  if (newIcon && newIcon.component) {
+    return <newIcon.component />;
   }
+  return null;
 };
 
 const IconApp = (props: $Props) => {
-  return <Icon>{getIcon(props)}</Icon>;
+  const icon = getIcon(props);
+  return icon && <Icon>{icon}</Icon>;
 };
 export default IconApp;
