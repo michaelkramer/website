@@ -1,7 +1,10 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import { ConfigProvider } from "antd";
+import { ThemeProvider } from "react-jss";
+
 import "./App.less";
+import { Theme } from "./Common/Theme";
 import Layout from "./Layout";
 import Routes from "./Routes";
 
@@ -12,11 +15,13 @@ const antConfig = {
 function App() {
   return (
     <ConfigProvider {...antConfig}>
-      <Router>
-        <Layout>
-          <Routes />
-        </Layout>
-      </Router>
+      <ThemeProvider theme={Theme}>
+        <Router>
+          <Layout>
+            <Routes />
+          </Layout>
+        </Router>
+      </ThemeProvider>
     </ConfigProvider>
   );
 }
