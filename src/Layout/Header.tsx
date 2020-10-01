@@ -6,7 +6,7 @@ const Header = () => {
   const location = useLocation();
   return (
     <Layout.Header>
-      {location.pathname !== "/" && <h3>Header</h3>}
+      {location.pathname !== "/" && <span>&nbsp;</span>}
     </Layout.Header>
   );
 };
