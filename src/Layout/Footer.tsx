@@ -1,11 +1,19 @@
 import React from "react";
-import { Layout } from "antd";
-const Footer = () => {
+import { Layout, Typography } from "antd";
+import { withStyles } from "../Common/Theme";
+
+const Footer = ({ classes }: any) => {
   return (
     <Layout.Footer>
-      <h3>Footer</h3>
+      <Typography.Paragraph className={classes.footer}>
+        &copy; Copyright {new Date().getFullYear()}
+      </Typography.Paragraph>
     </Layout.Footer>
   );
 };
 
-export default Footer;
+const style = () => ({
+  footer: { textAlign: "right" },
+});
+
+export default withStyles(style)(Footer);

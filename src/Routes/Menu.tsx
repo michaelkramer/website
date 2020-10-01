@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Radio, Typography } from "antd";
-
 import { ROUTES } from "../constants";
 import Icon from "../Common/Icons";
 import Home from "../Home";
@@ -17,7 +16,7 @@ interface MenuItem {
   exact?: boolean;
   icon?: string;
   onClick?: any;
-  component?: () => JSX.Element;
+  component?: any; // () => JSX.Element |
 }
 
 const menuItems: MenuItem[] = [
@@ -41,13 +40,32 @@ const menuStyle = {
   marginBottom: "8px",
 };
 
-const MenuApp = () => {
+interface IMenuAppProps extends React.HTMLAttributes<HTMLBaseElement> {
+  mode?:
+    | "vertical"
+    | "horizontal"
+    | "vertical-left"
+    | "vertical-right"
+    | "inline"
+    | undefined;
+  omitHome?: boolean;
+}
+
+const MenuApp = (props: IMenuAppProps) => {
   const [iconTheme, setIconTheme] = useState<IconTheme>(IconTheme.antd);
   const location = useLocation();
+  const menu = props.omitHome
+    ? menuItems.filter((m) => m.url !== ROUTES.HOME)
+    : menuItems;
   return (
     <>
-      <Menu defaultSelectedKeys={[location.pathname]} theme="light">
-        {menuItems.map((item: MenuItem) => (
+      <Menu
+        defaultSelectedKeys={[location.pathname]}
+        theme="light"
+        mode={props.mode ?? "vertical"}
+        className={props.className}
+      >
+        {menu.map((item: MenuItem) => (
           <Menu.Item
             key={item.url}
             onClick={item.onClick}
