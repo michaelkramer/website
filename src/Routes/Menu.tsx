@@ -7,7 +7,7 @@ import { ROUTES } from "../constants";
 import Icon from "../Common/Icons";
 import Home from "../Home";
 import Resume from "../Resume";
-import EmptyPage from "../EmptyPage";
+import SideIdeas from "../SideIdeas";
 import Notes from "../Notes";
 //! import ContactForm from "../Contact"; - this has been stashed
 import { IconThemes } from "../Common/Icons";
@@ -30,8 +30,8 @@ const menuItems: MenuItem[] = [
     icon: "User",
   },
   { url: ROUTES.RLS, title: "Rls", icon: "Home" },
-  { url: ROUTES.SIDE, title: "Side ideas", icon: "Idea", component: EmptyPage },
-  { url: ROUTES.NOTES, title: "Notes", component: Notes },
+  { url: ROUTES.SIDE, title: "Side ideas", icon: "Idea", component: SideIdeas },
+  { url: ROUTES.NOTES, title: "Notes", icon: "Note", component: Notes },
   //! { url: "/contact", title: "Contact", component: ContactForm },
 ];
 

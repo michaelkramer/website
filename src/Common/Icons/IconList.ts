@@ -22,6 +22,14 @@ const IconList: $Icon[] = [
   { name: "Home", theme: IconTheme.antd, component: AI.AiOutlineHome },
   { name: "Home", theme: IconTheme.bi, component: BI.BiHome },
   { name: "Home", theme: IconTheme.fc, component: FC.FcHome },
+
+  { name: "Idea", theme: IconTheme.antd, component: AI.AiOutlineBulb },
+  { name: "Idea", theme: IconTheme.bi, component: BI.BiBulb },
+  { name: "Idea", theme: IconTheme.fc, component: FC.FcIdea },
+
+  { name: "Note", theme: IconTheme.antd, component: AI.AiOutlineFileText },
+  { name: "Note", theme: IconTheme.bi, component: BI.BiNotepad },
+  { name: "Note", theme: IconTheme.fc, component: FC.FcRules },
 ];
 
 export default IconList;

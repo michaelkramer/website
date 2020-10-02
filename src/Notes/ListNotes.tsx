@@ -1,27 +1,32 @@
-import React, { useState, useEffect } from "react";
-import Note1 from "./note1";
-const ListNotes = () => {
-  const [files, setFiles] = useState<{ name: string; component: any }[]>([]);
+import React from "react";
+import { Collapse } from "antd";
+import { withStyles } from "../Common/Theme";
 
-  useEffect(() => {
-    const filesArray: { name: string; component: any }[] = [];
-    filesArray.push({ name: "Note 1", component: Note1 });
-    setFiles(filesArray);
-    return () => {};
-  }, []);
+const notes = [
+  {
+    name: "Git Refresh .gitignore files",
+    md: `${process.env.PUBLIC_URL}/notes/git-01.md`,
+  },
+];
+
+const ListNotes = ({ classes }: any) => {
   return (
-    <div>
-      <h3>ListNotes</h3>
-      {files.map((file, idx) => (
-        <React.Fragment key={idx}>
-          <div>{file.name}</div>
-          <div>
-            <file.component />
-          </div>
-        </React.Fragment>
-      ))}
+    <div className={classes.root}>
+      <h3>List of Notes</h3>
+      <Collapse>
+        {notes.map((note, idx) => {
+          return (
+            <Collapse.Panel header={note.name} key={idx}>
+              <div>{note.md}</div>
+            </Collapse.Panel>
+          );
+        })}
+      </Collapse>
     </div>
   );
 };
 
-export default ListNotes;
+const styles = (theme?: any) => ({
+  root: { textAlign: "left" },
+});
+export default withStyles(styles)(ListNotes);
