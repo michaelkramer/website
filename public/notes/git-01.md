@@ -1,5 +1,3 @@
-<!-- Git Refresh .gitignore files -->
-
 # So you changed your .gitignore but the files are still being pushed??
 
 You will have to clear the existing git `cache` first.
