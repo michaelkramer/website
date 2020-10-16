@@ -13,7 +13,9 @@
     "lint": "eslint --format stylish --ext .tsx src",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "clean": "rm -r build",
+    "build-notes": "ts-node --project tsconfig-build-notes.json md-notes/index.ts"
   },
   "husky": {
     "hooks": {
@@ -68,11 +70,13 @@
   },
   "dependencies": {
     "antd": "^4.6.5",
+    "axios": "^0.20.0",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
     "react-jss": "^10.4.0",
+    "react-markdown": "^4.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "typescript": "~3.7.2"
