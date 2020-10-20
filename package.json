@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "homepage": "https://michaelkramer.github.io/website",
   "scripts": {
@@ -16,7 +16,6 @@
     "deploy": "gh-pages -d build",
     "clean": "rm -r build",
     "build-notes": "ts-node --project tsconfig-build-notes.json md-notes/index.ts",
-
     "version-major": "bash dev-ops/version major",
     "version-minor": "bash dev-ops/version minor",
     "version-patch": "bash dev-ops/version patch"
