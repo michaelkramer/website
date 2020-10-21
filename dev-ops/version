@@ -4,7 +4,7 @@ git checkout develop; # make sure we have the latest develop
 git pull;
 
 # Create new tag
-git checkout master; # make sure we have the latest release candidate code fro master
+git checkout master; # make sure we have the latest release candidate code from master
 git pull;
 npm version $1; # create the new tag which .gitlab-ci.yml uses as a trigger for deploying to production
 
