@@ -18,6 +18,10 @@ const notes = [
     name: "How to deploy to gh-pages",
     md: `${process.env.PUBLIC_URL}/notes/github-pages.md`,
   },
+  {
+    name: "Version Control",
+    md: `${process.env.PUBLIC_URL}/notes/version-control.md`,
+  },
 ];
 
 const ListNotes = ({ classes }: any) => {
