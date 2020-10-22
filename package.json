@@ -10,6 +10,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "loop-test": "craco test src/loopTests/*.test.tsx --verbose --runInBand",
     "lint": "eslint --format stylish --ext .tsx src",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",

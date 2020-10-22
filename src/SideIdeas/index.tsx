@@ -1,70 +1,99 @@
-import React, { useState, useContext } from "react";
-import { Typography, Card, Button } from "antd";
-import ReactMarkdown from "react-markdown";
-import axios from "axios";
+import React, { useContext } from "react";
+import { Typography, Card, Button, Space } from "antd";
+import {
+  Switch,
+  Route,
+  useHistory,
+  useRouteMatch
+} from "react-router-dom";
 import { withStyles } from "../Common/Theme";
 import GlobalProvider from "../Common/GlobalContext";
 import Icon from "../Common/Icons";
 import EslintFacepalmIcon from "../Common/Icons/eslint-facepalm";
+import LoopTest from "./LoopTest";
+import EslintFacepalm from "./EslintFacepalm"
 
 const SideIdeas = ({ classes }: any) => {
-  const [cardData, setCardData] = useState("");
+  const history = useHistory();
   const { iconTheme } = useContext(GlobalProvider.context);
-  const readFile = (file: string) => {
-    if (cardData.length) {
-      return setCardData("");
-    }
-    return axios.get(file).then((response: any) => setCardData(response.data));
-  };
+
+  let { path, url } = useRouteMatch();
+
   return (
     <div className={classes.root}>
       <Typography>
         <Typography.Title>Small Side Projects I've done.</Typography.Title>
       </Typography>
-      <Card
-        hoverable
-        className={classes.card}
-        cover={
-          <div>
-            <EslintFacepalmIcon />
-          </div>
-        }
-        actions={[
-          <Button
-            type="link"
-            icon={<Icon theme={iconTheme} name={"Info"} />}
-            onClick={() =>
-              readFile(
-                "https://raw.githubusercontent.com/michaelkramer/eslint-plugin-facepalm/master/README.md"
-              )
-            }
-          >
-            Info
+      <Space>
+        <Card
+          hoverable
+          className={classes.card}
+          cover={
+            <div>
+              <EslintFacepalmIcon />
+            </div>
+          }
+          actions={[
+            <Button
+              type="link"
+              icon={<Icon theme={iconTheme} name={"Info"} />}
+              onClick={() => history.push(`${url}/eslint`)}
+            >
+              Info
+            </Button>,
+            <Button
+              type="link"
+              icon={<Icon theme={iconTheme} name={"Github"} />}
+              href={"https://github.com/michaelkramer/eslint-plugin-facepalm"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
           </Button>,
-          <Button
-            type="link"
-            icon={<Icon theme={iconTheme} name={"Github"} />}
-            href={"https://github.com/michaelkramer/eslint-plugin-facepalm"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github
-          </Button>,
-        ]}
-      >
-        <Card.Meta
-          title="eslint-plugin-facepalm"
-          description="eslint-plugins are really helpful, eslint-plugin-facepalm is designed
+          ]}
+        >
+          <Card.Meta
+            title="eslint-plugin-facepalm"
+            description="eslint-plugins are really helpful, eslint-plugin-facepalm is designed
           to just present you with cleaner code. By warning you when you left
           some debug code."
-          className={classes.meta}
-        />
-      </Card>
-      {cardData && (
-        <Typography className={classes.cardData}>
-          <ReactMarkdown source={cardData} />
-        </Typography>
-      )}
+            className={classes.meta}
+          />
+        </Card>
+        <Card
+          hoverable
+          className={classes.card}
+
+          actions={[
+            <Button
+              type="link"
+              icon={<Icon theme={iconTheme} name={"Info"} />}
+              onClick={() => history.push(`${url}/looptest`)}
+            >
+              Info
+            </Button>,
+
+          ]}
+        >
+          <Card.Meta
+            title="Loop Test"
+            description="Fun Loop testing"
+            className={classes.meta}
+          />
+        </Card>
+      </Space>
+      <Switch>
+        {/* <Route exact path={path}>
+
+        </Route> */}
+        <Route path={`${path}/eslint`}>
+          <EslintFacepalm />
+        </Route>
+        <Route path={`${path}/looptest`}>
+          <LoopTest />
+        </Route>
+      </Switch>
+
     </div>
   );
 };
