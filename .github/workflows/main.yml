@@ -6,9 +6,10 @@ name: Build and Deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
-  
-    
+    branches: [master]
+    tags:
+      - v*
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
