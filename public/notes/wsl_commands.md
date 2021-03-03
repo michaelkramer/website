@@ -3,3 +3,6 @@
 
 # Windows see what ports are open 
 `netstat`
+
+# Port forwarding from WSL to Windows
+https://dev.to/vishnumohanrk/wsl-port-forwarding-2e22
