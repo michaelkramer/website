@@ -4,6 +4,9 @@
 # Windows see what ports are open 
 `netstat`
 
+# Windows see what is listening PORT
+`netstat -ano | findstr :5002`
+
 # Port forwarding from WSL to Windows
 https://dev.to/vishnumohanrk/wsl-port-forwarding-2e22
 
