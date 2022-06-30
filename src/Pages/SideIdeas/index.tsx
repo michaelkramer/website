@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Icon from "../../Common/Icons";
 import EslintFacepalmIcon from "../../Common/Icons/eslint-facepalm";
-import { Typography, Card, Button, CardContent, CardActions, CardMedia, Stack, styled, Paper, Box, Grid, ImageList, ImageListItem } from "@mui/material";
+import { Typography, Card, Button, CardContent, CardActions, CardMedia, styled, Paper, Box, ImageList, ImageListItem } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectSettings } from "../../State/Settings/selectors";
 
@@ -20,7 +20,6 @@ export const SideIdeas = ({ classes = { root: "", } }: any) => {
   const history = useNavigate();
   const checkOutlet = useOutlet();
   const { iconTheme } = useSelector(selectSettings);
-  //console.log("location: ", location)
   return (
     <div>
 

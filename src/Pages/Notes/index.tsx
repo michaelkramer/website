@@ -18,7 +18,3 @@ export const Notes = ({ classes = { root: "" } }: any) => {
     </Typography>
   );
 };
-const styles = (theme?: any) => ({
-  root: { marginLeft: theme.spacing, marginRight: theme.spacing * 2 },
-});
-

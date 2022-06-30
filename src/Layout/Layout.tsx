@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { MenuApp } from "../Routes";
-import { Container, Paper, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 interface $Props {
   children: any;
@@ -37,5 +37,3 @@ export const Layout = ({ children }: $Props) => {
     </Container>
   );
 };
-
-//export default LayoutComponent;

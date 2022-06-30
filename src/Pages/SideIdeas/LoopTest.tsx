@@ -61,8 +61,6 @@ export const LoopTest = () => {
     setResult3Performance(tb - ta);
   }
 
-  const rowProps = { gutter: [16, 16] };
-
   return (
     <>
       <Typography variant="h3">Loop Test</Typography>

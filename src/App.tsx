@@ -8,10 +8,6 @@ import { theme } from "./constants";
 import { Provider } from "react-redux";
 import { store } from "./State/store";
 
-const antConfig = {
-  prefixCls: "mk",
-};
-
 function App() {
   return (
     <Provider store={store}>

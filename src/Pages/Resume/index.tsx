@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Icon from "../../Common/Icons";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
@@ -37,10 +37,3 @@ export const Resume = ({ classes = { root: "", button: "", img: "" } }: any) => 
     </div>
   );
 };
-
-const styles = (theme?: any) => ({
-  root: { marginRight: theme.spacing * 2 },
-  button: { textAlign: "right" },
-  img: { width: "100%" },
-});
-

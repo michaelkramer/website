@@ -1,12 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { EslintFacepalm } from "../Pages/SideIdeas/EslintFacepalm";
-import { ROUTES } from "../constants";
 
 import { EmptyPage } from "../Pages/EmptyPage";
-import { LoopTest } from "../Pages/SideIdeas/LoopTest";
 import { menuItems } from "./Menu";
-import { GrpcCode } from "../Pages/SideIdeas/GrpcCode";
 
 export const MyRoutes = () => {
   return (

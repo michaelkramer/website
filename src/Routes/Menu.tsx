@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { ListItemIcon, ListItemText, MenuItem, MenuList, Radio, styled, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
-//import { default as AntIcon } from "@ant-design/icons";
+import React from "react";
+import { Link } from "react-router-dom";
+import { ListItemIcon, ListItemText, MenuItem, MenuList, styled, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import { ROUTES } from "../constants";
 import Icon from "../Common/Icons";
 import { HomePage } from "../Pages/Home";
@@ -51,7 +50,6 @@ const MenuStyle = styled(Typography)(({ theme }: StyledProps) => ({
 export const MenuApp = (props: IMenuAppProps) => {
   const dispatch = useDispatch();
   const { iconTheme } = useSelector(selectSettings);
-  const location = useLocation();
   const menu = props.omitHome
     ? menuItems.filter((m) => m.url !== ROUTES.HOME)
     : menuItems;

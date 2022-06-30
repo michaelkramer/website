@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import ReactMarkdown from "react-markdown";
-import axios from "axios";
-import { Box, Button, Paper } from "@mui/material";
-import { readFile } from "fs";
-import { useNavigate, useOutlet, Outlet } from "react-router-dom";
+import React from "react";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const notes = [
   {
@@ -64,13 +61,3 @@ export const ListNotes = ({ classes = { root: "", listItem: "" } }: any) => {
     </div>
   );
 };
-
-const styles = (theme?: any) => ({
-  root: {
-    textAlign: "left",
-  },
-  listItem: {
-    marginBottom: `${theme.spacing}px !important`,
-  },
-});
-
