@@ -1,4 +1,4 @@
-import { IconTheme } from "./IconTheme";
+import { IconTheme } from "../../Types";
 import * as AI from "react-icons/ai";
 import * as BI from "react-icons/bi";
 import * as FC from "react-icons/fc";

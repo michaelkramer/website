@@ -1,9 +1,8 @@
 import React from "react";
-import Icon from "@ant-design/icons";
-import { IconTheme, IconThemes } from "./IconTheme";
+import { IconThemes } from "./IconTheme";
 import IconList from "./IconList";
 
-export { IconTheme, IconThemes };
+export { IconThemes };
 
 interface $Props {
   theme: any;
@@ -22,6 +21,6 @@ const getIcon = ({ theme, name }: $Props) => {
 
 const IconApp = (props: $Props) => {
   const icon = getIcon(props);
-  return icon && <Icon>{icon}</Icon>;
+  return icon && <span>{icon}</span>;
 };
 export default IconApp;
