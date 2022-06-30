@@ -1,26 +1,34 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { EslintFacepalm } from "../Pages/SideIdeas/EslintFacepalm";
+import { ROUTES } from "../constants";
 
-import EmptyPage from "../EmptyPage";
+import { EmptyPage } from "../Pages/EmptyPage";
+import { LoopTest } from "../Pages/SideIdeas/LoopTest";
 import { menuItems } from "./Menu";
+import { GrpcCode } from "../Pages/SideIdeas/GrpcCode";
 
-const Routes = () => {
+export const MyRoutes = () => {
   return (
-    <Switch>
+    <Routes>
       {menuItems.map((menuItem, index) => {
         const Component = menuItem.component || EmptyPage;
+        if (menuItem.subItems && menuItem.subItems.length > 0) {
+          return (
 
+            <Route key={index} path={menuItem.url} element={<Component />}>
+              {menuItem.subItems.map((menu) => {
+                const SubComponent = menu.component || EmptyPage;
+                return <Route key={menu.url} path={menu.url} element={<SubComponent />} />
+              })}
+            </Route>
+          );
+        }
         return (
-          <Route exact={menuItem.exact} key={index} path={menuItem.url}>
-            <Component />
-          </Route>
+          <Route key={index} path={menuItem.url} element={<Component />} />
         );
       })}
-      <Route path="*">
-        <EmptyPage />
-      </Route>
-    </Switch>
+      <Route path="*" element={<EmptyPage />} />
+    </Routes>
   );
 };
-
-export default Routes;

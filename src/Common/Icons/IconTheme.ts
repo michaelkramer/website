@@ -1,14 +1,9 @@
 import * as AI from "react-icons/ai";
 import * as BI from "react-icons/bi";
 import * as FC from "react-icons/fc";
+import { IconTheme } from "../../Types";
 
-enum IconTheme {
-  antd = "antd",
-  fc = "fc",
-  bi = "bi",
-}
-
-const IconThemes = [
+export const IconThemes = [
   {
     label: IconTheme.antd,
     value: IconTheme.antd,
@@ -26,4 +21,4 @@ const IconThemes = [
   },
 ];
 
-export { IconTheme, IconThemes, AI, BI, FC };
+export { AI, BI, FC };

@@ -1,20 +1,21 @@
 import React, { useContext } from "react";
-import { Button } from "antd";
-import GlobalProvider from "../Common/GlobalContext";
-import { withStyles } from "../Common/Theme";
-import Icon from "../Common/Icons";
+import Icon from "../../Common/Icons";
+import { Button } from "@mui/material";
+import { useSelector } from "react-redux";
+import { selectSettings } from "../../State/Settings/selectors";
 
-const Resume = ({ classes }: any) => {
-  const { iconTheme } = useContext(GlobalProvider.context);
+export const Resume = ({ classes = { root: "", button: "", img: "" } }: any) => {
+  const { iconTheme } = useSelector(selectSettings);
   return (
     <div className={classes.root}>
       <div className={classes.button}>
         <Button
+          component="a"
           href={`${process.env.PUBLIC_URL}/Michael_Kramer.pdf`}
           target="_blank"
           rel="noopener noreferrer"
-          type="link"
-          icon={<Icon theme={iconTheme} name={"PDF"} />}
+          variant="text"
+          startIcon={<Icon theme={iconTheme} name={"PDF"} />}
         >
           Download as PDF
         </Button>
@@ -43,4 +44,3 @@ const styles = (theme?: any) => ({
   img: { width: "100%" },
 });
 
-export default withStyles(styles)(Resume);

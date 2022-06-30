@@ -1,14 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Layout } from "antd";
+import { Box } from "@mui/material";
 
-const Header = () => {
+export const Header = () => {
   const location = useLocation();
   return (
-    <Layout.Header>
+    <Box>
       {location.pathname !== "/" && <span>&nbsp;</span>}
-    </Layout.Header>
+    </Box>
   );
 };
-
-export default Header;

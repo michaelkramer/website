@@ -4,28 +4,19 @@
   "private": true,
   "homepage": "https://michaelkramer.github.io/website",
   "scripts": {
-    "rs-start": "react-scripts start",
-    "rs-build": "react-scripts build",
-    "rs-test": "react-scripts test",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "loop-test": "craco test src/loopTests/*.test.tsx --verbose --runInBand",
     "lint": "eslint --format stylish --ext .tsx src",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "clean": "rm -r build",
     "build-notes": "ts-node --project tsconfig-build-notes.json md-notes/index.ts",
     "version-major": "bash dev-ops/version major",
     "version-minor": "bash dev-ops/version minor",
     "version-patch": "bash dev-ops/version patch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "yarn lint"
-    }
   },
   "eslintConfig": {
     "plugins": [
@@ -73,33 +64,33 @@
     ]
   },
   "dependencies": {
-    "antd": "^4.6.5",
-    "axios": "^0.20.0",
-    "lodash": "^4.17.20",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-icons": "^3.11.0",
-    "react-jss": "^10.4.0",
-    "react-markdown": "^4.3.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.6",
+    "@reduxjs/toolkit": "^1.8.2",
+    "axios": "^0.27.2",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-markdown": "^8.0.3",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "typescript": "~4.7.4"
   },
   "devDependencies": {
-    "@craco/craco": "^5.6.4",
     "@michaelkramer/eslint-plugin-facepalm": "^1.1.4",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/lodash": "^4.14.161",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.1",
+    "@types/jest": "^28.1.3",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
     "@types/react-icons": "^3.0.0",
-    "@types/react-router-dom": "^5.1.5",
-    "craco-less": "^1.17.0",
-    "gh-pages": "^3.1.0",
-    "husky": "^4.3.0"
+    "@types/react-router-dom": "^5.3.3",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.1"
   }
 }

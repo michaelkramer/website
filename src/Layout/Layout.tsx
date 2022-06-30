@@ -1,40 +1,41 @@
 import React from "react";
-import { Layout } from "antd";
 import { useLocation } from "react-router-dom";
 
-import Header from "./Header";
-import Footer from "./Footer";
-import { Menu } from "../Routes";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { MenuApp } from "../Routes";
+import { Container, Paper, Grid } from "@mui/material";
 
 interface $Props {
   children: any;
 }
 
-const LayoutComponent = ({ children }: $Props) => {
+export const Layout = ({ children }: $Props) => {
   const location = useLocation();
 
   return (
-    <Layout>
+    <Container>
       <Header />
-      <Layout>
-        {location.pathname === "/" && (
-          <Layout.Content className="App">{children}</Layout.Content>
-        )}
-        {location.pathname !== "/" && (
-          <>
-            <Layout.Sider style={{ color: "white" }}>
-              <Menu />
-            </Layout.Sider>
-            <Layout>
-              <Layout.Content className="App">{children}</Layout.Content>
-            </Layout>
-          </>
-        )}
-      </Layout>
+      {location.pathname === "/" && (
+        <div className="App">{children}</div>
+      )}
+      {location.pathname !== "/" && (
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <div style={{ color: "white" }}>
+              <MenuApp />
+            </div>
+          </Grid>
+          <Grid item xs={10}>
+            <div className="App">{children}</div>
+          </Grid>
+        </Grid>
+      )}
+
 
       <Footer />
-    </Layout>
+    </Container>
   );
 };
 
-export default LayoutComponent;
+//export default LayoutComponent;

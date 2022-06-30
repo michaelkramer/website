@@ -1,19 +1,23 @@
 import React from "react";
-import { Layout, Typography } from "antd";
-import { withStyles } from "../Common/Theme";
+import { styled, Typography } from "@mui/material";
+import { StyledProps } from "../Types";
 
-const Footer = ({ classes }: any) => {
+const FooterStyle = styled(Typography)(({ theme }: StyledProps) => ({
+}));
+
+const FooterWrapper = styled("div")(({ theme }: StyledProps) => ({
+  textAlign: "right",
+  position: "fixed",
+  bottom: 0,
+  right: theme.spacing(6)
+}));
+
+export const Footer = () => {
   return (
-    <Layout.Footer>
-      <Typography.Paragraph className={classes.footer}>
+    <FooterWrapper>
+      <FooterStyle variant="body1">
         &copy; Copyright {new Date().getFullYear()}
-      </Typography.Paragraph>
-    </Layout.Footer>
+      </FooterStyle>
+    </FooterWrapper>
   );
 };
-
-const style = () => ({
-  footer: { textAlign: "right" },
-});
-
-export default withStyles(style)(Footer);
