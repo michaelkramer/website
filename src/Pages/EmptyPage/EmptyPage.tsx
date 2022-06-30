@@ -1,6 +1,6 @@
 import React from "react";
 
-const EmptyPage = () => {
+export const EmptyPage = () => {
   return (
     <div>
       <h3>EmptyPage</h3>
@@ -8,4 +8,3 @@ const EmptyPage = () => {
   );
 };
 
-export default EmptyPage;

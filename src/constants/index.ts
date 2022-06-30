@@ -1,3 +1,2 @@
-import * as ROUTES from "./routes";
-
-export { ROUTES };
+export * as ROUTES from "./routes";
+export * from "./theme";

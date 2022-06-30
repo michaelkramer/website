@@ -1,34 +1,44 @@
 import React, { useState } from "react";
-import { Button } from "antd";
 import ReactMarkdown from "react-markdown";
 import axios from "axios";
-import { withStyles } from "../Common/Theme";
+import { Box, Button, Paper } from "@mui/material";
+import { readFile } from "fs";
+import { useNavigate, useOutlet, Outlet } from "react-router-dom";
 
 const notes = [
   {
     name:
       "So you changed your .gitignore but the files are still being pushed??",
-    md: `${process.env.PUBLIC_URL}/notes/git-change-gitignore.md`,
+    md: "git-change-gitignore.md",
   },
   {
     name: "Say you accidentally pushed your .env files 🤦‍♂️",
-    md: `${process.env.PUBLIC_URL}/notes/git-undo-env.md`,
+    md: 'git-undo-env.md',
   },
   {
     name: "How to deploy to gh-pages",
-    md: `${process.env.PUBLIC_URL}/notes/github-pages.md`,
+    md: "github-pages.md",
   },
   {
     name: "Version Control",
-    md: `${process.env.PUBLIC_URL}/notes/version-control.md`,
+    md: "version-control.md",
+  },
+  {
+    name: "Heroku Commands",
+    md: "heroku-commands.md",
+  },
+  {
+    name: "Setting up jwt",
+    md: "jwt-setup.md",
+  },
+  {
+    name: "WSL Commands",
+    md: "wsl_commands.md",
   },
 ];
 
-const ListNotes = ({ classes }: any) => {
-  const [d, setD] = useState("");
-  const readFile = (file: string) => {
-    return axios.get(file).then((response: any) => setD(response.data));
-  };
+export const ListNotes = ({ classes = { root: "", listItem: "" } }: any) => {
+  const history = useNavigate();
   return (
     <div className={classes.root}>
       <h3>List of Notes</h3>
@@ -42,7 +52,7 @@ const ListNotes = ({ classes }: any) => {
                 <li
                   key={idx}
                   className={classes.listItem}
-                  onClick={() => readFile(note.md)}
+                  onClick={() => history(note.md)}
                 >
                   <Button>{note.name}</Button>
                 </li>
@@ -50,9 +60,6 @@ const ListNotes = ({ classes }: any) => {
             })}
           </ul>
         )}
-        <div>
-          <ReactMarkdown source={d} />
-        </div>
       </div>
     </div>
   );
@@ -66,4 +73,4 @@ const styles = (theme?: any) => ({
     marginBottom: `${theme.spacing}px !important`,
   },
 });
-export default withStyles(styles)(ListNotes);
+

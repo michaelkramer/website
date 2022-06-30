@@ -1,13 +1,12 @@
 import React from "react";
-import { HashRouter as Router } from "react-router-dom";
-import { ConfigProvider } from "antd";
-import { ThemeProvider } from "react-jss";
-
-import "./App.less";
-import GlobalContext from "./Common/GlobalContext";
-import { Theme } from "./Common/Theme";
-import Layout from "./Layout";
-import Routes from "./Routes";
+import { BrowserRouter as Router } from "react-router-dom";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import { Layout } from "./Layout";
+import { MyRoutes } from "./Routes";
+import { theme } from "./constants";
+import { Provider } from "react-redux";
+import { store } from "./State/store";
 
 const antConfig = {
   prefixCls: "mk",
@@ -15,17 +14,17 @@ const antConfig = {
 
 function App() {
   return (
-    <GlobalContext>
-      <ConfigProvider {...antConfig}>
-        <ThemeProvider theme={Theme}>
-          <Router>
-            <Layout>
-              <Routes />
-            </Layout>
-          </Router>
-        </ThemeProvider>
-      </ConfigProvider>
-    </GlobalContext>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Router>
+          <Layout>
+            <MyRoutes />
+          </Layout>
+        </Router>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

@@ -1,28 +1,26 @@
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Radio, Typography } from "antd";
-import { default as AntIcon } from "@ant-design/icons";
-import GlobalProvider from "../Common/GlobalContext";
+import { ListItemIcon, ListItemText, MenuItem, MenuList, Radio, styled, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
+//import { default as AntIcon } from "@ant-design/icons";
 import { ROUTES } from "../constants";
 import Icon from "../Common/Icons";
-import Home from "../Home";
-import Resume from "../Resume";
-import SideIdeas from "../SideIdeas";
-import Notes from "../Notes";
+import { HomePage } from "../Pages/Home";
+import { Resume } from "../Pages/Resume";
+import { SideIdeas } from "../Pages/SideIdeas";
+import { Notes } from "../Pages/Notes";
 //! import ContactForm from "../Contact"; - this has been stashed
 import { IconThemes } from "../Common/Icons";
+import { useDispatch, useSelector } from "react-redux";
+import { selectSettings } from "../State/Settings/selectors";
+import { IMenuAppProps, MenuItemProps, MenuAppMode, StyledProps } from "../Types";
+import { toggleIcon } from "../State/Settings/reducer";
+import { EslintFacepalm } from "../Pages/SideIdeas/EslintFacepalm";
+import { LoopTest } from "../Pages/SideIdeas/LoopTest";
+import { GrpcCode } from "../Pages/SideIdeas/GrpcCode";
+import { Note } from "../Pages/Notes/Note";
 
-interface MenuItem {
-  url: string;
-  title: string;
-  exact?: boolean;
-  icon?: string;
-  onClick?: any;
-  component?: any; // () => JSX.Element |
-}
-
-const menuItems: MenuItem[] = [
-  { url: ROUTES.HOME, title: "Home", component: Home, exact: true },
+const menuItems: MenuItemProps[] = [
+  { url: ROUTES.HOME, title: "Home", component: HomePage, exact: true },
   {
     url: ROUTES.RESUME,
     title: "Resume",
@@ -30,82 +28,85 @@ const menuItems: MenuItem[] = [
     icon: "User",
   },
   { url: ROUTES.RLS, title: "Rls", icon: "Home" },
-  { url: ROUTES.SIDE, title: "Side ideas", icon: "Idea", component: SideIdeas },
-  { url: ROUTES.NOTES, title: "Notes", icon: "Note", component: Notes },
+  {
+    url: ROUTES.SIDE, title: "Side ideas", icon: "Idea", component: SideIdeas, subItems: [
+      { url: ROUTES.SIDE_ESLINT, title: "Eslint Facepalm", component: EslintFacepalm },
+      { url: ROUTES.SIDE_LOOPTEST, title: "Loop Test", component: LoopTest },
+      { url: ROUTES.SIDE_GRPC, title: "gRpc Code", component: GrpcCode }
+    ]
+  },
+  {
+    url: ROUTES.NOTES, title: "Notes", icon: "Note", component: Notes, subItems: [
+      { url: ":id", title: "Name", component: Note },]
+  },
   //! { url: "/contact", title: "Contact", component: ContactForm },
 ];
 
-const menuStyle = {
-  fontSize: "12px",
-  padding: "0 16px",
-  marginTop: "4px",
-  marginBottom: "8px",
-};
+const MenuStyle = styled(Typography)(({ theme }: StyledProps) => ({
+  fontSize: theme.spacing(1.5),
+  marginTop: theme.spacing(0.5),
+  marginBottom: theme.spacing(1),
+}));
 
-interface IMenuAppProps extends React.HTMLAttributes<HTMLBaseElement> {
-  mode?:
-    | "vertical"
-    | "horizontal"
-    | "vertical-left"
-    | "vertical-right"
-    | "inline"
-    | undefined;
-  omitHome?: boolean;
-}
-
-const MenuApp = (props: IMenuAppProps) => {
-  const { iconTheme, setIconTheme } = useContext(GlobalProvider.context);
+export const MenuApp = (props: IMenuAppProps) => {
+  const dispatch = useDispatch();
+  const { iconTheme } = useSelector(selectSettings);
   const location = useLocation();
   const menu = props.omitHome
     ? menuItems.filter((m) => m.url !== ROUTES.HOME)
     : menuItems;
+
+  const menuListStyle = React.useMemo(() => {
+    if (props.mode === MenuAppMode.horizontal) {
+      return { display: "inline-flex" };
+    }
+  }, [props.mode]);
+
   return (
     <>
-      <Menu
-        defaultSelectedKeys={[location.pathname]}
-        theme="light"
-        mode={props.mode ?? "vertical"}
-        className={props.className}
+      <MenuList
+        style={menuListStyle}
       >
-        {menu.map((item: MenuItem) => (
-          <Menu.Item
+        {menu.map((item: MenuItemProps) => (
+          <MenuItem
             key={item.url}
             onClick={item.onClick}
-            icon={item.icon && <Icon theme={iconTheme} name={item.icon} />}
           >
-            {item.url ? <Link to={item.url}>{item.title}</Link> : item.title}
-          </Menu.Item>
-        ))}
-      </Menu>
+            <ListItemIcon>
+              <Icon theme={iconTheme} name={item.icon} />
+            </ListItemIcon>
+            <ListItemText>
+              {item.url ? <Link to={item.url}>{item.title}</Link> : item.title}
+            </ListItemText>
 
-      <Typography.Text style={menuStyle}>
+          </MenuItem>
+        ))}
+      </MenuList>
+
+      <MenuStyle variant="body1">
         I love Icons so play around
-      </Typography.Text>
-      <div style={menuStyle}>
-        <Radio.Group
-          onChange={(e) => {
-            setIconTheme(e.target.value);
+      </MenuStyle>
+      <MenuStyle>
+        <ToggleButtonGroup
+          onChange={(e, value) => {
+            dispatch(toggleIcon(value));
           }}
           value={iconTheme}
-          optionType="button"
+          exclusive
         >
           {IconThemes.map((theme) => (
-            <Radio.Button
+            <ToggleButton
               key={theme.label}
               value={theme.value}
               name={theme.label}
             >
-              <AntIcon>
-                <theme.icon />
-              </AntIcon>
-            </Radio.Button>
+              <theme.icon />
+            </ToggleButton >
           ))}
-        </Radio.Group>
-      </div>
+        </ToggleButtonGroup>
+      </MenuStyle>
     </>
   );
 };
 
 export { menuItems };
-
-export default MenuApp;
