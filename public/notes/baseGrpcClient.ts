@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import { PackageDefinition } from '@grpc/proto-loader';
@@ -5,11 +7,10 @@ import _ from 'lodash';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 import { Logger } from '../lib/logger';
-import { ClientStateSnapshot, ConnectionStatus } from './clientState';
 import {
   GrpcServiceClient, GRPCServiceContructor, GRPCStreamEvent, isProtoServiceKey,
 } from './grpc.common';
-import { GRPCClient, GRPCClientCalls, GRPCClientStreams } from './grpcClient';
+import { ClientStateSnapshot, ConnectionStatus, GRPCClient, GRPCClientCalls, GRPCClientStreams } from './grpcClient';
 
 import path from 'path';
 

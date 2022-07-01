@@ -32,6 +32,10 @@ const notes = [
     name: "WSL Commands",
     md: "wsl_commands.md",
   },
+  {
+    name: "gRpc Base Client",
+    md: "baseGrpcClient.ts",
+  },
 ];
 
 export const ListNotes = ({ classes = { root: "", listItem: "" } }: any) => {

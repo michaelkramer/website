@@ -2,6 +2,7 @@ import { IconTheme } from "../../Types";
 import * as AI from "react-icons/ai";
 import * as BI from "react-icons/bi";
 import * as FC from "react-icons/fc";
+import * as FA from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 
 interface $Icon {
@@ -30,6 +31,10 @@ const IconList: $Icon[] = [
   { name: "Note", theme: IconTheme.antd, component: AI.AiOutlineFileText },
   { name: "Note", theme: IconTheme.bi, component: BI.BiNotepad },
   { name: "Note", theme: IconTheme.fc, component: FC.FcRules },
+
+  { name: "Copy", theme: IconTheme.antd, component: AI.AiOutlineCopy },
+  { name: "Copy", theme: IconTheme.bi, component: BI.BiCopy },
+  { name: "Copy", theme: IconTheme.fc, component: FA.FaCopy },
 ];
 
 export default IconList;

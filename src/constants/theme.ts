@@ -8,5 +8,12 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: `"Comfortaa","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`
+  },
+  components: {
+    MuiLink: {
+      defaultProps: {
+        underline: "hover"
+      }
+    }
   }
 });
