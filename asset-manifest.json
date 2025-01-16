@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/website/static/css/main.03d4063f.css",
-    "main.js": "/website/static/js/main.fc2c16d7.js",
+    "main.js": "/website/static/js/main.c6b2fc0d.js",
+    "static/media/agent-website.svg": "/website/static/media/agent-website.57e505bf6ca29742924f4aef9327ff8b.svg",
+    "static/media/MLSPropertyfinder-dashboard.svg": "/website/static/media/MLSPropertyfinder-dashboard.6a0a4f6e77937cb6ec20016707d0aeb9.svg",
     "index.html": "/website/index.html",
     "main.03d4063f.css.map": "/website/static/css/main.03d4063f.css.map",
-    "main.fc2c16d7.js.map": "/website/static/js/main.fc2c16d7.js.map"
+    "main.c6b2fc0d.js.map": "/website/static/js/main.c6b2fc0d.js.map"
   },
   "entrypoints": [
     "static/css/main.03d4063f.css",
-    "static/js/main.fc2c16d7.js"
+    "static/js/main.c6b2fc0d.js"
   ]
 }
