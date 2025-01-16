@@ -17,6 +17,7 @@ import { EslintFacepalm } from "../Pages/SideIdeas/EslintFacepalm";
 import { LoopTest } from "../Pages/SideIdeas/LoopTest";
 import { GrpcCode } from "../Pages/SideIdeas/GrpcCode";
 import { Note } from "../Pages/Notes/Note";
+import { RLSCaseStudy } from "../Pages/CaseStudy/RLSCaseStudy";
 
 const menuItems: MenuItemProps[] = [
   { url: ROUTES.HOME, title: "Home", component: HomePage, exact: true },
@@ -26,7 +27,7 @@ const menuItems: MenuItemProps[] = [
     component: Resume,
     icon: "User",
   },
-  { url: ROUTES.RLS, title: "Rls", icon: "Home" },
+  { url: ROUTES.RLS, title: "Rls", icon: "Home", component: RLSCaseStudy },
   {
     url: ROUTES.SIDE, title: "Side ideas", icon: "Idea", component: SideIdeas, subItems: [
       { url: ROUTES.SIDE_ESLINT, title: "Eslint Facepalm", component: EslintFacepalm },
