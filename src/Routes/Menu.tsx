@@ -18,6 +18,7 @@ import { LoopTest } from "../Pages/SideIdeas/LoopTest";
 import { GrpcCode } from "../Pages/SideIdeas/GrpcCode";
 import { Note } from "../Pages/Notes/Note";
 import { RLSCaseStudy } from "../Pages/CaseStudy/RLSCaseStudy";
+import { UXForms } from "../Pages/SideIdeas/UXForms";
 
 const menuItems: MenuItemProps[] = [
   { url: ROUTES.HOME, title: "Home", component: HomePage, exact: true },
@@ -32,7 +33,8 @@ const menuItems: MenuItemProps[] = [
     url: ROUTES.SIDE, title: "Side ideas", icon: "Idea", component: SideIdeas, subItems: [
       { url: ROUTES.SIDE_ESLINT, title: "Eslint Facepalm", component: EslintFacepalm },
       { url: ROUTES.SIDE_LOOPTEST, title: "Loop Test", component: LoopTest },
-      { url: ROUTES.SIDE_GRPC, title: "gRpc Code", component: GrpcCode }
+      { url: ROUTES.SIDE_GRPC, title: "gRpc Code", component: GrpcCode },
+      { url: ROUTES.SIDE_UX, title: "UX", component: UXForms }
     ]
   },
   {

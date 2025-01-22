@@ -5,6 +5,7 @@ export const SIDE = "/side";
 export const SIDE_ESLINT = `eslint`;
 export const SIDE_LOOPTEST = `looptest`;
 export const SIDE_GRPC = `grpc`;
+export const SIDE_UX = 'ux';
 export const NOTES = "/notes";
 export const BASEPATH = process.env.PUBLIC_URL;
 export const BASEPATH_NOTE = `${BASEPATH}${NOTES}`;

@@ -9,6 +9,7 @@ import EslintFacepalmIcon from "../../Common/Icons/eslint-facepalm";
 import { Typography, Card, Button, CardContent, CardActions, CardMedia, styled, Paper, Box, ImageList, ImageListItem } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectSettings } from "../../State/Settings/selectors";
+import { ROUTES } from "../../constants";
 
 const CarMediaStyled = styled(CardMedia)(({ theme }) => ({
   textAlign: "center",
@@ -38,7 +39,7 @@ export const SideIdeas = ({ classes = { root: "", } }: any) => {
                 component="a"
                 variant="text"
                 startIcon={<Icon theme={iconTheme} name={"Info"} />}
-                onClick={() => history(`eslint`)}
+                onClick={() => history(ROUTES.SIDE_ESLINT)}
               >
                 Info
               </Button>
@@ -71,7 +72,7 @@ export const SideIdeas = ({ classes = { root: "", } }: any) => {
                 component="a"
                 variant="text"
                 startIcon={<Icon theme={iconTheme} name={"Info"} />}
-                onClick={() => history(`looptest`)}
+                onClick={() => history(ROUTES.SIDE_LOOPTEST)}
               >
                 Info
               </Button>
@@ -91,7 +92,7 @@ export const SideIdeas = ({ classes = { root: "", } }: any) => {
                 component="a"
                 variant="text"
                 startIcon={<Icon theme={iconTheme} name={"Info"} />}
-                onClick={() => history(`grpc`)}
+                onClick={() => history(ROUTES.SIDE_GRPC)}
               >
                 Info
               </Button>
@@ -102,6 +103,23 @@ export const SideIdeas = ({ classes = { root: "", } }: any) => {
           </Card>
           {/* </Grid>
       </Grid> */}
+        </ImageListItem>
+        <ImageListItem>
+          <Card>
+            <CardActions>
+              <Button
+                component="a"
+                variant="text"
+                startIcon={<Icon theme={iconTheme} name={"Info"} />}
+                onClick={() => history(ROUTES.SIDE_UX)}
+              >
+                Info
+              </Button>
+            </CardActions>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">Which form is better?</Typography>
+            </CardContent>
+          </Card>
         </ImageListItem>
       </ImageList>
       {checkOutlet && <Paper>

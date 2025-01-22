@@ -35,6 +35,14 @@ const IconList: $Icon[] = [
   { name: "Copy", theme: IconTheme.antd, component: AI.AiOutlineCopy },
   { name: "Copy", theme: IconTheme.bi, component: BI.BiCopy },
   { name: "Copy", theme: IconTheme.fc, component: FA.FaCopy },
+
+  { name: "Cross", theme: IconTheme.antd, component: AI.AiOutlineClose },
+  { name: "Cross", theme: IconTheme.bi, component: BI.BiX },
+  { name: "Cross", theme: IconTheme.fc, component: FA.FaTimes },
+
+  { name: "Check", theme: IconTheme.antd, component: AI.AiOutlineCheck },
+  { name: "Check", theme: IconTheme.bi, component: BI.BiCheck },
+  { name: "Check", theme: IconTheme.fc, component: FA.FaCheck },
 ];
 
 export default IconList;
