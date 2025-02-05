@@ -2,6 +2,7 @@ import { Box, styled, Typography } from "@mui/material"
 import React from "react"
 import { ButtonPlacement } from "./uxComponents/ButtonPlacement"
 import { ButtonColor } from "./uxComponents/ButtonColor"
+import { LabelPlacement } from "./uxComponents/LabelPlacement"
 
 const StyledBox = styled(Box)(({ theme }) => ({ paddingBottom: theme.spacing(4) }))
 
@@ -21,5 +22,6 @@ export const UXForms = () => {
     </ul>
     <StyledBox><ButtonPlacement /></StyledBox>
     <StyledBox><ButtonColor /></StyledBox>
+    <StyledBox><LabelPlacement /></StyledBox>
   </>)
 }

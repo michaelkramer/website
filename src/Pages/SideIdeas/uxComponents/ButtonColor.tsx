@@ -45,7 +45,7 @@ export const ButtonColor = () => {
   return (<Grid container spacing={2}>
     <Grid item xs={12}>
 
-      <Typography variant="h6">Button Color</Typography>
+      <Typography variant="h6">Using Color to Influence the Decision</Typography>
 
     </Grid>
     <Grid item xs={6}>
