@@ -1,3 +1,8 @@
+### v0.1.6
+* 0.1.6 (Michael Kramer)
+* Update Changelog With Commits For v0.1.5 (Michael Kramer)
+* Update Changelog With Commits For v0.1.5 (Michael Kramer)
+
 ### v0.1.5
 * 0.1.5 (Michael Kramer)
 * update (Michael Kramer)

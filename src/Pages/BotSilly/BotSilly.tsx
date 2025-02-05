@@ -12,7 +12,7 @@ export const BotSilly = () => {
   return (
     <Paper sx={{ p: 3 }}>
       <Typography variant="h2">AI Bot</Typography>
-      <Typography variant="body1">This is a silly AI bot to help you with life.</Typography>
+      <Typography variant="body1">This is a silly AI bot to help you with life. </Typography>
       <Divider variant="fullWidth" sx={{ mt: 2, mb: 2 }} />
       <Stack direction="row">
 
