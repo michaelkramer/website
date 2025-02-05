@@ -19,6 +19,7 @@ import { GrpcCode } from "../Pages/SideIdeas/GrpcCode";
 import { Note } from "../Pages/Notes/Note";
 import { RLSCaseStudy } from "../Pages/CaseStudy/RLSCaseStudy";
 import { UXForms } from "../Pages/SideIdeas/UXForms";
+import { BotSilly } from "../Pages/BotSilly/BotSilly";
 
 const menuItems: MenuItemProps[] = [
   { url: ROUTES.HOME, title: "Home", component: HomePage, exact: true },
@@ -41,6 +42,7 @@ const menuItems: MenuItemProps[] = [
     url: ROUTES.NOTES, title: "Notes", icon: "Note", component: Notes, subItems: [
       { url: ":id", title: "Name", component: Note },]
   },
+  { url: ROUTES.BOTS, title: "Bots", icon: "Bot", component: BotSilly },
   //! { url: "/contact", title: "Contact", component: ContactForm },
 ];
 

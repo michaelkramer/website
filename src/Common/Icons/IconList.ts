@@ -1,6 +1,7 @@
 import { IconTheme } from "../../Types";
 import * as AI from "react-icons/ai";
 import * as BI from "react-icons/bi";
+import * as BS from "react-icons/bs";
 import * as FC from "react-icons/fc";
 import * as FA from "react-icons/fa";
 import { IconType } from "react-icons/lib";
@@ -43,6 +44,10 @@ const IconList: $Icon[] = [
   { name: "Check", theme: IconTheme.antd, component: AI.AiOutlineCheck },
   { name: "Check", theme: IconTheme.bi, component: BI.BiCheck },
   { name: "Check", theme: IconTheme.fc, component: FA.FaCheck },
+
+  { name: "Bot", theme: IconTheme.fc, component: FA.FaRobot },
+  { name: "Bot", theme: IconTheme.antd, component: AI.AiOutlineRobot },
+  { name: "Bot", theme: IconTheme.bi, component: BS.BsRobot },
 ];
 
 export default IconList;
